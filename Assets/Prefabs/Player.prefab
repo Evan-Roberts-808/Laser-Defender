@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8505591433791794895}
   - component: {fileID: -4955748493697847363}
+  - component: {fileID: 2027992677088675255}
+  - component: {fileID: 7457600371406356351}
+  - component: {fileID: 1105465253160094393}
+  - component: {fileID: 5985138640921264869}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -63,6 +67,132 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!50 &2027992677088675255
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984086781237287880}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!60 &7457600371406356351
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984086781237287880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.49446735, y: 0.07246546}
+      - {x: 0.43308097, y: 0.06678991}
+      - {x: 0.40948552, y: 0.0061348975}
+      - {x: 0.36716422, y: -0.012676701}
+      - {x: 0.12658262, y: 0.12136105}
+      - {x: 0.0868541, y: 0.37171143}
+      - {x: 0, y: 0.37801236}
+      - {x: -0.08816707, y: 0.37530917}
+      - {x: -0.124381095, y: 0.1181802}
+      - {x: -0.354872, y: -0.015226621}
+      - {x: -0.40156916, y: 0.007267073}
+      - {x: -0.4396131, y: 0.06734267}
+      - {x: -0.495287, y: 0.06615782}
+      - {x: -0.4620124, y: -0.2619132}
+      - {x: -0.43222654, y: -0.26563925}
+      - {x: -0.40703437, y: -0.22058606}
+      - {x: -0.14347182, y: -0.2808671}
+      - {x: -0.0885641, y: -0.37618187}
+      - {x: 0.085172445, y: -0.37557012}
+      - {x: 0.14320078, y: -0.2814856}
+      - {x: 0.407767, y: -0.21746038}
+      - {x: 0.42907783, y: -0.2584722}
+      - {x: 0.46781874, y: -0.24989384}
+      - {x: 0.48360777, y: -0.14517142}
+  m_UseDelaunayMesh: 0
+--- !u!114 &1105465253160094393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984086781237287880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd21f8a8e985b404291d4f457a6d9f70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  paddingLeft: 0.5
+  paddingRight: 0.5
+  paddingTop: 10
+  paddingBottom: 2
+--- !u!114 &5985138640921264869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984086781237287880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c07e0ad91dbcd4385e10c685c5bf77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
 --- !u!1 &7190756688931562678
 GameObject:
   m_ObjectHideFlags: 0
