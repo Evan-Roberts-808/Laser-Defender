@@ -9,8 +9,10 @@ public class Shooter : MonoBehaviour
     [SerializeField] GameObject projectivePrefab;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float projectileLifetime = 5f;
-    [SerializeField] float fireRate = 0.2f;
-
+    [SerializeField] float baseFireRate = 0.2f;
+    [SerializeField] float firingRateVariance = 0f;
+    [SerializeField] float minimumFiringRate = 0.1f;
+    [SerializeField] bool useAI;
     public bool isFiring;
     Coroutine firingCoroutine;
 
@@ -18,7 +20,9 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        if (useAI) {
+            isFiring = true;
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +54,10 @@ public class Shooter : MonoBehaviour
                 rb.velocity = transform.up * projectileSpeed;
             }
             Destroy(instance, projectileLifetime);
-            yield return new WaitForSeconds(fireRate);
+
+            float timeToNextProjectile = Random.Range(baseFireRate - firingRateVariance, baseFireRate + firingRateVariance);
+            timeToNextProjectile = Mathf.Clamp(timeToNextProjectile, minimumFiringRate, float.MaxValue);
+            yield return new WaitForSeconds(timeToNextProjectile);
         }
     }
 
