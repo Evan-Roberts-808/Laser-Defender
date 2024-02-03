@@ -15,7 +15,7 @@ TagManager:
   - Background
   - Enemy
   - Player
-  - 
+  - Particles
   - 
   - 
   - 
@@ -50,4 +50,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3847881015
+    locked: 0
+  - name: Particles
+    uniqueID: 2026004121
     locked: 0

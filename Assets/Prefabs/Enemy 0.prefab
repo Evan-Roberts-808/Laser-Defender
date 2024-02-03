@@ -90,6 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  explosionEffect: {fileID: 1677986813368722701, guid: 6cea4472e7f571946bac2dc04c444f2e, type: 3}
 --- !u!114 &-6979521151550456638
 MonoBehaviour:
   m_ObjectHideFlags: 0
