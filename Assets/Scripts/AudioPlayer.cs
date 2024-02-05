@@ -12,6 +12,32 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip explosion;
     [SerializeField][Range(0f, 1f)] float explosionVolume = 1f;
 
+    static AudioPlayer instance;
+
+    public AudioPlayer GetInstance()
+    {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        ManageSingleton();
+    }
+
+    void ManageSingleton()
+    {
+        if (instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     public void PlayShootingClip()
     {
         if (shootingEffect != null)

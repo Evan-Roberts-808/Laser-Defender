@@ -89,8 +89,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c07e0ad91dbcd4385e10c685c5bf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   health: 50
   explosionEffect: {fileID: 1677986813368722701, guid: 6cea4472e7f571946bac2dc04c444f2e, type: 3}
+  applyCameraShake: 0
+  scoreValue: 50
 --- !u!114 &-6979521151550456638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831629d5a06106d48b735f527c322c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 50
 --- !u!60 &6322559584827648911
 PolygonCollider2D:
   m_ObjectHideFlags: 0
