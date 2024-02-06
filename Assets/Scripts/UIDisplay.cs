@@ -6,7 +6,6 @@ using TMPro;
 
 public class UIDisplay : MonoBehaviour
 {
-
     [Header("Health")]
     [SerializeField] Slider healthSlider;
     [SerializeField] Health playerHealth;
@@ -15,17 +14,16 @@ public class UIDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     ScoreKeeper scoreKeeper;
 
-    private void Awake() {
+    void Awake()
+    {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         healthSlider.maxValue = playerHealth.GetHealth();
     }
 
-    // Update is called once per frame
     void Update()
     {
         healthSlider.value = playerHealth.GetHealth();

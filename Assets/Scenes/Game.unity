@@ -1049,6 +1049,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 942692131856035697, guid: cf0df833e4512024e8f9ca9c6c776965, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7912238548862726117, guid: cf0df833e4512024e8f9ca9c6c776965, type: 3}
+      propertyPath: damageClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ed9caa66fd4a48547bc33ddc00b86536, type: 3}
+    - target: {fileID: 7912238548862726117, guid: cf0df833e4512024e8f9ca9c6c776965, type: 3}
+      propertyPath: shootingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 63177f7c36da02545ae80b3db65c548e, type: 3}
     - target: {fileID: 7970744772507134338, guid: cf0df833e4512024e8f9ca9c6c776965, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -8,16 +8,20 @@ public class ScoreKeeper : MonoBehaviour
 
     static ScoreKeeper instance;
 
-    private void Awake() {
+    void Awake()
+    {
         ManageSingleton();
     }
 
-    void ManageSingleton(){
-        if (instance != null) {
+    void ManageSingleton()
+    {
+        if(instance != null)
+        {
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
-        else {
+        else
+        {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -28,9 +32,9 @@ public class ScoreKeeper : MonoBehaviour
         return score;
     }
 
-    public void IncreaseScore(int amountToIncrease)
+    public void ModifyScore(int value)
     {
-        score += amountToIncrease;
+        score += value;
         Mathf.Clamp(score, 0, int.MaxValue);
         Debug.Log(score);
     }
@@ -39,5 +43,4 @@ public class ScoreKeeper : MonoBehaviour
     {
         score = 0;
     }
-
 }

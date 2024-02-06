@@ -6,16 +6,17 @@ public class Health : MonoBehaviour
 {
     [SerializeField] bool isPlayer;
     [SerializeField] int health = 50;
-    [SerializeField] ParticleSystem explosionEffect;
-    [SerializeField] bool applyCameraShake;
-    [SerializeField] int scoreValue = 50;
+    [SerializeField] int score = 50;
+    [SerializeField] ParticleSystem hitEffect;
 
+    [SerializeField] bool applyCameraShake;
     CameraShake cameraShake;
+
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
     LevelManager levelManager;
 
-    private void Awake()
+    void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
@@ -23,28 +24,29 @@ public class Health : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
+
+        if(damageDealer != null)
+        {
+            TakeDamage(damageDealer.GetDamage());
+            PlayHitEffect();
+            audioPlayer.PlayDamageClip();
+            ShakeCamera();
+            damageDealer.Hit();
+        }
+    }
+
     public int GetHealth()
     {
         return health;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        DamageDealer damageDealer = other.GetComponent<DamageDealer>();
-        if (damageDealer != null)
-        {
-            TakeDamage(damageDealer.GetDamage());
-            PlayExplosionEffect();
-            ShakeCamera();
-            damageDealer.Hit();
-
-        }
-    }
-
-    private void TakeDamage(int damage)
+    void TakeDamage(int damage)
     {
         health -= damage;
-        if (health == 0)
+        if(health <= 0)
         {
             Die();
         }
@@ -54,7 +56,7 @@ public class Health : MonoBehaviour
     {
         if(!isPlayer)
         {
-            scoreKeeper.IncreaseScore(scoreValue);
+            scoreKeeper.ModifyScore(score);
         }
         else
         {
@@ -63,19 +65,18 @@ public class Health : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void PlayExplosionEffect()
+    void PlayHitEffect()
     {
-        if (explosionEffect != null)
+        if(hitEffect != null)
         {
-            ParticleSystem instance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
-            audioPlayer.PlayExplosionClip();
+            ParticleSystem instance = Instantiate(hitEffect, transform.position, Quaternion.identity);
             Destroy(instance.gameObject, instance.main.duration + instance.main.startLifetime.constantMax);
         }
     }
 
     void ShakeCamera()
     {
-        if (cameraShake != null && applyCameraShake)
+        if(cameraShake != null && applyCameraShake)
         {
             cameraShake.Play();
         }

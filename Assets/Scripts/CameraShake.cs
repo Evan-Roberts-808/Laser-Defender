@@ -6,20 +6,24 @@ public class CameraShake : MonoBehaviour
 {
     [SerializeField] float shakeDuration = 1f;
     [SerializeField] float shakeMagnitude = 0.5f;
+
     Vector3 initialPosition;
-    // Start is called before the first frame update
+
     void Start()
     {
         initialPosition = transform.position;
     }
 
-    public void Play(){
+    public void Play()
+    {
         StartCoroutine(Shake());
     }
 
-    IEnumerator Shake(){
-        float elapsedTime = 0f;
-        while (elapsedTime < shakeDuration) {
+    IEnumerator Shake()
+    {
+        float elapsedTime = 0;
+        while(elapsedTime < shakeDuration)
+        {
             transform.position = initialPosition + (Vector3)Random.insideUnitCircle * shakeMagnitude;
             elapsedTime += Time.deltaTime;
             yield return new WaitForEndOfFrame();
